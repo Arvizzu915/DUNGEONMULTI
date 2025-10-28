@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.rlabrecque.steamworks.net": {
+      "version": "https://github.com/rlabrecque/Steamworks.NET.git?path=/com.rlabrecque.steamworks.net",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d739f7608ba7f099d2b55e796fdf427f64247444"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.8",
       "depth": 0,
