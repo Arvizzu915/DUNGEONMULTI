@@ -1,12 +1,13 @@
 using UnityEngine;
 using Steamworks;
-using System;
+using UnityEngine.Events;
 
 public class SteamScript : MonoBehaviour
 {
-    protected Callback<GameOverlayActivated_t> m_GameOverlayActivated;
+    [Header("Initialized")]
+    public UnityEvent onSteamInitialized;
 
-    private CallResult<NumberOfCurrentPlayers_t> m_NumberOfCurrentPlayers;
+    protected Callback<GameOverlayActivated_t> m_GameOverlayActivated;
 
     private void OnEnable()
     {
@@ -14,17 +15,14 @@ public class SteamScript : MonoBehaviour
         {
             m_GameOverlayActivated = Callback<GameOverlayActivated_t>.Create(OnGameOverlayActivated);
 
-            m_NumberOfCurrentPlayers = CallResult<NumberOfCurrentPlayers_t>.Create(OnNumberOfCurrentPlayers);
-        }
-    }
+            string playerName = SteamFriends.GetPersonaName();
+            CSteamID playerId = SteamUser.GetSteamID();
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SteamAPICall_t handle = SteamUserStats.GetNumberOfCurrentPlayers();
-            m_NumberOfCurrentPlayers.Set(handle);
-            Debug.Log("Called GetNumberOfCurrentPlayers()");
+            Debug.Log($"[Steam] Connection started.");
+            Debug.Log($"[Steam] Player Name: {playerName}");
+            Debug.Log($"[Steam] SteamID: {playerId}");
+
+            onSteamInitialized?.Invoke();
         }
     }
 
@@ -37,18 +35,6 @@ public class SteamScript : MonoBehaviour
         else
         {
             Debug.Log("Steam Overlay has been closed");
-        }
-    }
-
-    private void OnNumberOfCurrentPlayers(NumberOfCurrentPlayers_t pCallback, bool bIOFailure)
-    {
-        if (pCallback.m_bSuccess != 1 || bIOFailure)
-        {
-            Debug.Log("There was an error retrieving the NumberOfCurrentPlayers.");
-        }
-        else
-        {
-            Debug.Log("The number of players playing your game: " + pCallback.m_cPlayers);
         }
     }
 }
