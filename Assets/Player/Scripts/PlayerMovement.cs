@@ -103,7 +103,6 @@ public class PlayerMovement : NetworkBehaviour
 
         controller.Move((currentSpeed * transform.TransformDirection(moveDirection) + playerVelocity) * Time.deltaTime);
 
-        Debug.Log(currentSpeed);
     }
 
     private void Jump(InputAction.CallbackContext ctx)
@@ -119,6 +118,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         running = true;
         
+
     }
 
     private void CheckGround()

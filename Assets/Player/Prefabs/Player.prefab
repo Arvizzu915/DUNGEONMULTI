@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a71916d9b844a48874600e9f289c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 3
+  _componentIndexCache: 4
   _addedNetworkObject: {fileID: 8200272242856099629}
   _networkObjectCache: {fileID: 8200272242856099629}
   sensibilityX: 9
@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 5858913760129757934}
   - {fileID: 8268836445179032000}
   - {fileID: 5404682253148852206}
+  - {fileID: 4455077550203238294}
   - {fileID: 705011362387722570}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -253,10 +254,10 @@ MonoBehaviour:
   sphereDistance: 0.9
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   objectMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   groundCheckOrigin: {fileID: 1437564905915040360}
 --- !u!114 &8268836445179032000
 MonoBehaviour:
@@ -284,7 +285,7 @@ MonoBehaviour:
   _extrapolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  _clientAuthoritative: 1
+  _clientAuthoritative: 0
   _sendToOwner: 1
   _interval: 1
   _synchronizePosition: 1
@@ -332,9 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0fdf537e52d484480a7cc311b9d144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 8200272242856099629}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 8200272242856099629}
   inputManager: {fileID: -7465783874306752327}
   cubePrefab: {fileID: -6104484291275285276, guid: b499ecf5333a61642852e9e7fb4697d5, type: 3}
 --- !u!114 &-7465783874306752327
