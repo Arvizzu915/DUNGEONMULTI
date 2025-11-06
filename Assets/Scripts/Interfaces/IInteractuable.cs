@@ -1,11 +1,8 @@
 using UnityEngine;
 
-public abstract class IInteractuable : ScriptableObject
+public interface IInteractuable
 {
-    public abstract void Interactuar();
+    public abstract void Interact();
 
-    public virtual void Hover()
-    {
-        
-    }
+    public abstract void Hover(PlayerUIManager UIManager);
 }

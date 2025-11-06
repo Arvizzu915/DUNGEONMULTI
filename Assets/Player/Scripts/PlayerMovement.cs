@@ -107,7 +107,6 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Jump(InputAction.CallbackContext ctx)
     {
-        Debug.Log("jump");
         if (isGrounded)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -gravity);

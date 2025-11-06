@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6147209489442513546}
   - component: {fileID: 705011362387722570}
+  - component: {fileID: 1693797791968959644}
   m_Layer: 6
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -44,13 +45,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a71916d9b844a48874600e9f289c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 4
+  _componentIndexCache: 5
   _addedNetworkObject: {fileID: 8200272242856099629}
   _networkObjectCache: {fileID: 8200272242856099629}
   sensibilityX: 9
   sensibilityY: 9
   orientation: {fileID: 1437564905915040360}
   playerMovement: {fileID: 5858913760129757934}
+--- !u!114 &1693797791968959644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921598418410226374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8703f584a219a024d875ce9d774f45f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 5826807418975065409}
 --- !u!1 &6930232391034403932
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +83,8 @@ GameObject:
   - component: {fileID: 5404682253148852206}
   - component: {fileID: 4455077550203238294}
   - component: {fileID: -7465783874306752327}
+  - component: {fileID: 5826807418975065409}
+  - component: {fileID: -9446161491843930}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -193,6 +209,7 @@ MonoBehaviour:
   - {fileID: 8268836445179032000}
   - {fileID: 5404682253148852206}
   - {fileID: 4455077550203238294}
+  - {fileID: 5826807418975065409}
   - {fileID: 705011362387722570}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -254,7 +271,7 @@ MonoBehaviour:
   sphereDistance: 0.9
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   objectMask:
     serializedVersion: 2
     m_Bits: 0
@@ -348,5 +365,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b92c418d52e45b44829ea4d0b1e4e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5826807418975065409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930232391034403932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288d782531c6b1e4794a6a07227b3c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 4
+  _addedNetworkObject: {fileID: 8200272242856099629}
+  _networkObjectCache: {fileID: 8200272242856099629}
+  PlayerUIManager: {fileID: -9446161491843930}
+--- !u!114 &-9446161491843930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930232391034403932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff3c275ec6efac479078d7fa3c51e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
