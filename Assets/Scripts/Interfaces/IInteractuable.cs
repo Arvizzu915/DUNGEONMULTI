@@ -1,15 +1,10 @@
 using UnityEngine;
 
-public class IInteractuable : MonoBehaviour
+public abstract class IInteractuable : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public abstract void Interactuar();
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Hover()
     {
         
     }
