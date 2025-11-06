@@ -258,6 +258,7 @@ MonoBehaviour:
   lobbyTitle: {fileID: 1144609082}
   lobbyIDText: {fileID: 1437706712}
   startGameButton: {fileID: 1620571068}
+  selectedMap: MapTest
 --- !u!4 &58978680
 Transform:
   m_ObjectHideFlags: 0

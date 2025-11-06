@@ -14,6 +14,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lobbyTitle, lobbyIDText;
     [SerializeField] private Button startGameButton;
 
+    [SerializeField] private string selectedMap = "MapTest";
+
     private void Awake()
     {
         instance = this;
@@ -72,6 +74,6 @@ public class MainMenuManager : MonoBehaviour
     {
         string[] scenesToClose = new string[] {"MainMenu"};
 
-        BootstrapNetworkManager.ChangeNetworkScene("SampleScene", scenesToClose);
+        BootstrapNetworkManager.ChangeNetworkScene(selectedMap, scenesToClose);
     }
 }
