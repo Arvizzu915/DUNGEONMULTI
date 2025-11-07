@@ -24,6 +24,8 @@ public class CameraLook : NetworkBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
+
         float mouseX = Look.ReadValue<Vector2>().x * Time.deltaTime * sensibilityX;
         float mouseY = Look.ReadValue<Vector2>().y * Time.deltaTime * sensibilityY;
 

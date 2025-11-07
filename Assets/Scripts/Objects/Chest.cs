@@ -7,7 +7,7 @@ public class Chest : NetworkBehaviour, IInteractuable
 
     private bool closed = true;
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void OpenChest()
     {
         GameObject objSpawned = Instantiate(obj, transform.position, transform.rotation);

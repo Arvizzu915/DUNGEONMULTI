@@ -8,12 +8,12 @@ public class PlayerDetectInteract : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.Instance.inputs.Playing.Interact.performed += Interact;
+        //InputManager.Instance.inputs.Playing.Interact.performed += Interact;
     }
 
     private void OnDisable()
     {
-        InputManager.Instance.inputs.Playing.Interact.performed -= Interact;
+        //InputManager.Instance.inputs.Playing.Interact.performed -= Interact;
     }
 
     void Update()
