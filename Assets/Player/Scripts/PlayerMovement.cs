@@ -10,7 +10,7 @@ public class PlayerMovement : NetworkBehaviour
 
     [SerializeField] public CharacterController controller;
     [SerializeField] private float currentSpeed, normalSpeed = 3;
-    [SerializeField] private float jumpForce = 5, gravity = -10f;
+    [SerializeField] private float gravity = -10f;
 
     private bool canMove = true, running = false;
 
