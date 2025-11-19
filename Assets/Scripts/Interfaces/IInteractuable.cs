@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IInteractuable
 {
-    public abstract void Interact(PlayerManager player);
+    public void Interact(PlayerManager player);
 
-    public abstract void Hover(PlayerUIManager UIManager);
+    public void Hover(PlayerUIManager UIManager);
 }

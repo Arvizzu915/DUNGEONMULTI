@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Chest : NetworkBehaviour, IInteractuable
 {
+    [SerializeField] private Transform spawnPlace;
     [SerializeField] private GameObject obj;
 
     private readonly SyncVar<bool> closed = new(true);
 
+    [SerializeField] private Animator animator;
+
     [ServerRpc(RequireOwnership = false)]
     public void OpenChest()
     {
-        GameObject objSpawned = Instantiate(obj, transform.position, transform.rotation);
+        animator.Play("Open");
+        
+
+        GameObject objSpawned = Instantiate(obj, spawnPlace.position, Quaternion.identity);
 
         // Tell FishNet to replicate this object to all clients
         Spawn(objSpawned);
@@ -19,19 +25,22 @@ public class Chest : NetworkBehaviour, IInteractuable
         // Apply physics on the server — this syncs automatically
         if (objSpawned.TryGetComponent(out Rigidbody rb))
         {
-            rb.AddForce(Vector3.up * 7, ForceMode.Impulse);
+            rb.WakeUp();
+            rb.AddForce((-transform.forward * 2) + Vector3.up * 7, ForceMode.Impulse);
         }
     }
 
     public void Hover(PlayerUIManager UIManager)
     {
-        UIManager.CanInteract(true, "Open");
+        UIManager.CanInteract(closed.Value, "Open");
     }
 
     public void Interact(PlayerManager player)
     {
         if (!closed.Value)
             return;
+
+        closed.Value = false;
 
         OpenChest();
     }

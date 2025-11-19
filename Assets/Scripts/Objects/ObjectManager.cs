@@ -4,6 +4,8 @@ using FishNet.Object;
 
 public class ObjectManager : NetworkBehaviour, IInteractuable
 {
+    [SerializeField] WeaponSO weaponSO;
+
     public void Hover(PlayerUIManager UIManager)
     {
         UIManager.CanInteract(true, "Equip");
@@ -11,6 +13,7 @@ public class ObjectManager : NetworkBehaviour, IInteractuable
 
     public void Interact(PlayerManager player)
     {
-        
+        weaponSO.GetEquipped(player);
+        gameObject.SetActive(false);
     }
 }

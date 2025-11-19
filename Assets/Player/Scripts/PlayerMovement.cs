@@ -6,6 +6,7 @@ using FishNet.Object;
 [RequireComponent (typeof(CharacterController))]
 public class PlayerMovement : NetworkBehaviour
 {
+    public PlayerManager PlayerManager;
     public InputManager inputManager;
 
     [SerializeField] public CharacterController controller;
@@ -77,6 +78,7 @@ public class PlayerMovement : NetworkBehaviour
         if (move.ReadValue<Vector2>().y <= .2)
         {
             running = false;
+            PlayerManager.playerAnim.SetTrigger("Running", false);
         }
 
         if (canMove)
@@ -116,8 +118,8 @@ public class PlayerMovement : NetworkBehaviour
     private void Run(InputAction.CallbackContext ctx)
     {
         running = true;
-        
 
+        PlayerManager.playerAnim.SetTrigger("Running", true);
     }
 
     private void CheckGround()

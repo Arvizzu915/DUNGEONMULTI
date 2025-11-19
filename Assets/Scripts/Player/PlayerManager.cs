@@ -6,6 +6,7 @@ public class PlayerManager : NetworkBehaviour
 {
     public PlayerUIManager PlayerUIManager;
     public PlayerCombat playerCombat;
+    public PlayerAnimManager playerAnim;
 
     public GameObject canvas;
     public LevelCanvas levelCanvas;

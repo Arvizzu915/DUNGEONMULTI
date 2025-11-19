@@ -1,29 +1,40 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
-    PlayerManager playerManager;
-    InputManager inputManager;
+    public PlayerManager playerManager;
+    public InputManager inputManager;
 
-    private GameObject rightWeapon, leftWeapon;
+    private WeaponSO currentWeaponSO = null;
 
+    [SerializeField] private GameObject rightWeapon, leftWeapon;
     private void OnEnable()
     {
-        
+        inputManager.inputs.Playing.Attack1.performed += UseWeapon;
     }
 
     private void OnDisable()
     {
+        inputManager.inputs.Playing.Attack1.performed -= UseWeapon;
+    }
+
+    public void EquipWeapon(GameObject weapon, WeaponSO newWeaponSO)
+    {
+        currentWeaponSO = newWeaponSO;
+
+        GameObject newWeapon = Instantiate(weapon, leftWeapon.transform);
+        newWeapon.transform.SetParent(leftWeapon.transform);
+        newWeapon.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         
+
+        playerManager.Spawn(newWeapon);
     }
 
-    public void EquipWeapon()
+    public void UseWeapon(InputAction.CallbackContext ctx)
     {
+        if (currentWeaponSO == null) return;
 
-    }
-
-    public void UseWeapon()
-    {
-
+        currentWeaponSO.Use(playerManager, this);
     }
 }
