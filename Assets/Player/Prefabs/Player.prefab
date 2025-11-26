@@ -49,8 +49,8 @@ MonoBehaviour:
   _componentIndexCache: 4
   _addedNetworkObject: {fileID: 8200272242856099629}
   _networkObjectCache: {fileID: 8200272242856099629}
-  sensibilityX: 9
-  sensibilityY: 9
+  sensibilityX: 20
+  sensibilityY: 20
   orientation: {fileID: 1437564905915040360}
   playerMovement: {fileID: 5858913760129757934}
 --- !u!114 &1693797791968959644
